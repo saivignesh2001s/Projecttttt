@@ -1,0 +1,50 @@
+﻿@model IEnumerable<BAL.flight>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    
+        
+   
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.flightid)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.flightname)
+        </th>
+        
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.flightid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.flightname)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.flightid }) |
+                @Html.ActionLink("Details", "Details", new { id = item.flightid }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.flightid })
+            </td>
+        </tr>
+    }
+    <td>
+        @Html.ActionLink("Export2","Index2")
+        <p style="color:green"> @ViewBag.Text22</p>
+        <p style="color:red"> @ViewBag.Text23</p>
+    </td>
+
+</table>
